@@ -490,6 +490,7 @@ if CLIENT then
             if (not LocalPlayer():GetActiveWeapon():IsValid()) then return end
             if (LocalPlayer():GetActiveWeapon():GetClass() == 'weapon_physgun') then return end
             if (LocalPlayer():GetActiveWeapon():GetClass() ~= 'gmod_tool' and GetConVarNumber('snap_alltools') == 0) then return end
+            if not hook.Run( "CanTool", entity, trace ) then return end
             target.entity = entity
         end
 
